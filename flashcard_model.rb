@@ -13,9 +13,11 @@ class Deck
 
   attr_reader :card_pack
 
+
   def initialize
     @card_pack = []
     @current_card = nil
+    @cards_complete = 0
   end
 
   def parse
@@ -28,6 +30,7 @@ class Deck
 
   def remove_card_from_deck
     @card_pack.delete(@current_card)
+    @cards_complete += 1
   end
 
   def send_card_to_back
