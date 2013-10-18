@@ -7,10 +7,10 @@ class GameView
 
   def welcome
     puts <<-STRING
-    "Welcome to Ruby Flash Cards!  To play, enter the correct term for each definition.
-         Ready?  Type 'go' to start.  Type 'quit' to quit."
+        Welcome to Ruby Flash Cards!  To play, enter the correct term for each definition.
+                              (Type 'quit' to quit.)
     STRING
-    sleep(1)
+    sleep(3)
   end
 
   def user_go
@@ -18,13 +18,16 @@ class GameView
   end
 
   def display_definition(definition)
-    puts "Definition:"
-    puts "#{definition}"
+    puts <<-STRING
+                          Definition:
+
+    STRING
+    puts "#{definition.capitalize}"
     gets.chomp
   end
 
   def clear_screen!
-    sleep(1)
+    sleep(5)
     print "\e[2J"
     print "\e[H"
   end
@@ -34,22 +37,31 @@ class GameView
   end
 
   def correct(user_answer, card_count)
-    puts "#{user_answer.capitalize} was correct! #{card_count} answered correctly."
-    puts
+    puts <<-STRING
+                  #{user_answer.capitalize} was correct!
+
+
+                        #{card_count} answered correctly.
+    STRING
   end
 
-  def incorrect(user_answer)
-    puts "#{user_answer} was incorrect."
-    puts
+  def incorrect(user_answer,correct_answer)
+    puts <<-STRING
+                    #{user_answer.capitalize} is incorrect.
+
+                          The correct answer is: #{correct_answer.capitalize}
+
+    STRING
   end
 
   def force_end_game(num_of_cards)
-      puts "So far, you have completed #{num_of_cards}. See you next time!"
+      puts <<-STRING
+                  You have completed #{num_of_cards}. See you next time!
+        STRING
   end
 
   def end_game
     puts "Gratz! You won the game!"
-
   end
 
 
