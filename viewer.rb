@@ -50,4 +50,4 @@ class GameView
 end
 
 test = GameView.new
-test.display_definition("recite pi")
+test.display_definition("Lord help us!")
