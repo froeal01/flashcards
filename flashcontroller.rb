@@ -1,4 +1,4 @@
-# Main file for 
+# Main file for
 require_relative 'viewer'
 require_relative 'flashcard_model'
 
@@ -27,8 +27,8 @@ class FlashController
       game_finished?
     end
   end
-  
-  
+
+
 
 end
 
