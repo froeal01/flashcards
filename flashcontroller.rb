@@ -11,6 +11,7 @@ class FlashController
   end
 
   def game_finished?
+    @viewer.clear_screen!
     return @viewer.end_game if @data.card_pack.empty?
     begin_round
   end
@@ -18,7 +19,9 @@ class FlashController
   def begin_round
     card = @data.random_pull
     user_input = @viewer.display_definition(card.question)
-    if user_input == card.answer
+    if user_input == "q"
+      @viewer.force_end_game(@data.cards_complete)  
+    elsif user_input == card.answer
       @viewer.correct(user_input, @data.cards_complete)
       @data.remove_card_from_deck
       game_finished?

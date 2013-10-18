@@ -17,7 +17,7 @@ class Deck
   def initialize
     @card_pack = []
     @current_card = nil
-    @cards_complete = 0
+    @cards_complete = 1
     parse
   end
 

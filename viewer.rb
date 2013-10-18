@@ -24,6 +24,7 @@ class GameView
   def clear_screen!
     sleep(1)
     print "\e[2J"
+    print "\e[H"
   end
 
   def correct(user_answer, card_count)
