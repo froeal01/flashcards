@@ -5,7 +5,6 @@ class Card
   def initialize(pair)
     @question = pair[0].chomp
     @answer = pair[1].chomp
-    # @id                             #we assign this?
   end
 
 end
@@ -29,11 +28,19 @@ class Deck
 
   def remove_card_from_deck
     @card_pack.delete(@current_card)
-    puts "This program ran"
+  end
+
+  def send_card_to_back
+    card = @card_pack.shift
+    @card_pack << card
   end
 
   def ask
     @current_card.question
+  end
+
+  def return_answer
+    @current_card.answer
   end
 
   def correct_answer?(user_input)
@@ -51,17 +58,10 @@ class Deck
 end
 
 
-deck = Deck.new
-deck.parse
-deck.random_pull
-p deck.ask
-p deck.correct_answer?("boo")
-p deck.remove_card_from_deck
-p deck.card_pack
-
-
-# To create a second name for the variable or method.
-# alias
-
-
-
+# deck = Deck.new
+# deck.parse
+# deck.random_pull
+# p deck.ask
+# p deck.correct_answer?("boo")
+# p deck.remove_card_from_deck
+# p deck.card_pack
