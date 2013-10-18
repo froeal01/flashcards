@@ -1,12 +1,13 @@
 # Main file for 
 require_relative 'viewer'
 require_relative 'model'
+
 class FlashController
 
   def initialize
     @viewer = GameView.new
-    @data = Model.new
-    begin_game
+    @data = Deck.new
+    game_finished?
   end
 
   def game_finished?

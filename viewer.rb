@@ -1,7 +1,6 @@
 
 class GameView
 
-  # Display flash card
   def initialize
     welcome
   end
