@@ -6,8 +6,10 @@ class GameView
   end
 
   def welcome
-    puts 'Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Type "go" to start.'
-    puts
+    puts <<-STRING
+    "Welcome to Ruby Flash Cards!  To play, enter the correct term for each definition.
+         Ready?  Type 'go' to start.  Type 'quit' to quit."
+    STRING
     sleep(1)
   end
 
@@ -27,8 +29,12 @@ class GameView
     print "\e[H"
   end
 
+  def move_to_home!
+    print "\e[H"
+  end
+
   def correct(user_answer, card_count)
-    puts "#{user_answer} was correct! #{card_count} answered correctly."
+    puts "#{user_answer.capitalize} was correct! #{card_count} answered correctly."
     puts
   end
 
@@ -48,5 +54,4 @@ class GameView
 
 
 end
-
 

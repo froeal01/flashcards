@@ -26,7 +26,7 @@ class Deck
     file.each_slice(2).each do |pair|
       @card_pack << Card.new(pair)
     end
-    
+
   end
 
   def remove_card_from_deck
