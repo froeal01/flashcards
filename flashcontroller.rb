@@ -1,6 +1,6 @@
 # Main file for 
 require_relative 'viewer'
-require_relative 'model'
+require_relative 'flashcard_model'
 
 class FlashController
 
@@ -11,18 +11,19 @@ class FlashController
   end
 
   def game_finished?
-    @data.array_length
+    return @viewer.end_game if @data.card_pack.empty?
     begin_round
   end
 
   def begin_round
-    card = @data.random_card
-    userinput = @viewer.display_definition(card.definition)
-    if userinput = card.answer
-      @viewer.correct(userinput)
+    card = @data.random_pull
+    user_input = @viewer.display_definition(card.question)
+    if user_input == card.answer
+      @viewer.correct(user_input, @data.cards_complete)
+      @data.remove_card_from_deck
       game_finished?
     else
-      @viewer.incorrect(userinput)
+      @viewer.incorrect(user_input)
       game_finished?
     end
   end
@@ -30,3 +31,5 @@ class FlashController
   
 
 end
+
+new_game = FlashController.new

@@ -11,13 +11,14 @@ end
 
 class Deck
 
-  attr_reader :card_pack
+  attr_reader :card_pack, :cards_complete
 
 
   def initialize
     @card_pack = []
     @current_card = nil
     @cards_complete = 0
+    parse
   end
 
   def parse
@@ -25,7 +26,7 @@ class Deck
     file.each_slice(2).each do |pair|
       @card_pack << Card.new(pair)
     end
-    @card_pack
+    
   end
 
   def remove_card_from_deck

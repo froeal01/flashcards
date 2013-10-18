@@ -7,6 +7,8 @@ class GameView
 
   def welcome
     puts 'Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Type "go" to start.'
+    puts
+    sleep(1) 
   end
 
   def user_go
@@ -19,34 +21,26 @@ class GameView
     gets.chomp
   end
 
-  def correct
-    puts "#{user_answer}That was correct!"
+  def correct(user_answer, card_count)
+    puts "#{user_answer} was correct! #{card_count} answered correctly."
+    puts
   end
 
   def incorrect(user_answer)
-    puts "#{user_answer}That was incorrect."
+    puts "#{user_answer} was incorrect."
+    puts
   end
 
-  def force_end_game
-      puts "So far, you have completed #{x amount of cards}. See you next time!"
-
+  def force_end_game(num_of_cards)
+      puts "So far, you have completed #{num_of_cards}. See you next time!"
   end
 
   def end_game
+    puts "Gratz! You won the game!"
 
   end 
 
 
-
-  # display new cards
-  # display answered cards
-  # User Answer
-  #   -get answer
-  # Game_Answer
-  #   -display Correct/Incorrect
-  #   -Display Answer
-
 end
 
-test = GameView.new
-test.display_definition("Lord help us!")
+
