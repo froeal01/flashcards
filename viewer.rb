@@ -8,7 +8,7 @@ class GameView
   def welcome
     puts 'Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Type "go" to start.'
     puts
-    sleep(1) 
+    sleep(1)
   end
 
   def user_go
@@ -19,6 +19,11 @@ class GameView
     puts "Definition:"
     puts "#{definition}"
     gets.chomp
+  end
+
+  def clear_screen!
+    sleep(1)
+    print "\e[2J"
   end
 
   def correct(user_answer, card_count)
@@ -38,7 +43,7 @@ class GameView
   def end_game
     puts "Gratz! You won the game!"
 
-  end 
+  end
 
 
 end
