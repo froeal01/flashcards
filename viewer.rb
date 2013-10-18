@@ -50,4 +50,4 @@ class GameView
 end
 
 test = GameView.new
-test
+test.display_definition("recite pi")
